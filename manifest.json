@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Full Screen Tab Extension",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "tabs",
+    "webNavigation",
+    "notifications",
+    "webRequest",
+    "webRequestBlocking",
+    "management",
+    "audioCapture",
+    "videoCapture"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [{
+    "js": ["content.js"],
+    "matches": ["*://testpage.com/*"],
+    "run_at": "document_end"
+  }],
+  "page_action": {
+    "default_icon": "icon128.png",
+    "default_title": "Start Test"
+  }
+}
